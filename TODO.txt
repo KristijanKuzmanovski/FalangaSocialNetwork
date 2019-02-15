@@ -1,0 +1,39 @@
+Dzini:
+1.Notifikacii:
+  -Chat
+  -Nov post X
+  -Like ili Dislike i komentar na tvoja post post X
+~ 2.Online/Offline users
+3.Push Notification
+4.SQL querys
+5.Normalizacija na tabeli *
+~ 7.Seen feature za chat isto taka i typing feature
+8.Bug koga ti istekuva vremeto na sesijata pri ne te vrakja na homa page tuku pokazuva error
+9.Register SSL X
+10.Free host X
+
+ChinaBro:
+1 Front End
+2 Bug commnet box
+3 Linkovi
+4 Emojis *
+5.Tumbnail za linkovi
+6.History od posts vo profile page
+7.Ikoni za stranite
+8.Home page
+9.vue za poseben post (preview)
+
+
+Bugs:
+1.Sroll isn't at the bottom when there is a Seen
+2.Seen feature is buggy as shit
+3.
+
+X 3.User profiles
+  4.Take care of the routes in vue
+X 5.Add zoom
+X 6.sredi go toa posle register redirect_to_feed
+  7.Comment counter e shit
+  8.sliki//problem za dzabe zacuvuvanje ako nema promena
+  9.postcontroller index kako da napraam da se lodnuvaat prvi tie postovi so aktivnost(standarden metod ima frka kade sto koa ke se smeni neso na dr paga dr user nema da go vidi postot koa ke ja loadne strAnata i ke mora refresh)
+X 10.Comment boxot e shit error pri double edit i ako e displaj block na eden comm i pri dodavanje na nov post vo arrayot displeyot se shifta za eden
