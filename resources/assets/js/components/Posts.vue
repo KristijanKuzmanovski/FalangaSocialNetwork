@@ -287,16 +287,18 @@
                     </div>
 <div class="card-footer">
                         <a href="javascript:void(0);" @click="likePost(post.post_id)" class="card-link">
-                         Like</a>
+                         Like <i class="fa fa-thumbs-up"></i></a>
+                         
                         <span style="margin-left:4px" class="h7">{{post.likes}} </span>
 
+
                         <a href="javascript:void(0);" @click="dislikePost(post.post_id)"class="card-link">
-                         Dislike</a>
+                         Dislike <i style="vertical-align:middle" class="fa fa-thumbs-down"></i></a>
+                         
+
+
                         <span style="margin-left:4px" class="h7"> {{post.dislikes}} </span>
-                        <a style="margin-left:8px" href="javascript:void(0);" @click="viewComments(post.post_id)" class="card-link"><i class="fa fa-comment"></i> Comment</a>
-
-
-
+                        <a style="margin-left:8px" href="javascript:void(0);" @click="viewComments(post.post_id)" class="card-link"><i class="fa fa-comment"></i> Comment</a><span style="margin-left:4px">{{post.comments}}</span>
 <div :id="'commentBox'+post.post_id" style="display:none">
   <input :id="'commentInput'+post.post_id" @input="typing(post.post_id,username)" type="text" class="form-control" placeholder="Send a comment">
 <div v-if="editComment != true">

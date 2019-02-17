@@ -2601,6 +2601,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 var $ = jquery__WEBPACK_IMPORTED_MODULE_0___default.a;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -49823,7 +49825,10 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n                         Like")]
+                    [
+                      _vm._v("\n                         Like "),
+                      _c("i", { staticClass: "fa fa-thumbs-up" })
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -49846,7 +49851,13 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("\n                         Dislike")]
+                    [
+                      _vm._v("\n                         Dislike "),
+                      _c("i", {
+                        staticClass: "fa fa-thumbs-down",
+                        staticStyle: { "vertical-align": "middle" }
+                      })
+                    ]
                   ),
                   _vm._v(" "),
                   _c(
@@ -49875,6 +49886,9 @@ var render = function() {
                       _vm._v(" Comment")
                     ]
                   ),
+                  _c("span", { staticStyle: { "margin-left": "4px" } }, [
+                    _vm._v(_vm._s(post.comments))
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",

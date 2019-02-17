@@ -18,6 +18,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet">
+    
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -28,7 +30,7 @@
             <div class="container" style="color:white">
 
 
-                <a  style="color:lightgray; font-size: 1.2rem" class="navbar-brand" href="{{ url('/') }}">
+                <a  style="color:lightgray; font-size: 1.2rem" class="navbar-brand" href="{{ url('/welcome') }}">
                       <i class="fa fa-home" aria-hidden="true"></i>
                    <!--{{ config('app.name', 'Laravel') }} -->
                     Home
@@ -81,8 +83,6 @@
             </div>
         </nav>
         <main class="py-4">
-          <button onclick="getNotifications()">get Notification</button>
-          <button onclick="markAsRead()">mark Notification</button>
             @yield('content')
         </main>
     </div>

@@ -3,7 +3,7 @@
 @section('content')
   @if(Auth::check())
   @if( Auth::user()->asked === 0 )
-    <posts email ="{{Auth::user()->email}}" bio ="{{Auth::user()->profile_bio}}" api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}" posts="{{ route('posts') }}" url="{{Request::url()}}"></posts>
+    <posts email ="{{Auth::user()->email}}" bio ="{{Auth::user()->profile_bio}}" api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}" posts="{{ route('posts') }}" url="{{url('/')}}"></posts>
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -35,10 +35,12 @@
   </div>
   @else
 
-   <posts email ="{{Auth::user()->email}}" bio ="{{Auth::user()->profile_bio}}" api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}" url="{{Request::url()}}" username="{{Auth::user()->name}}"></posts>
+   <posts email ="{{Auth::user()->email}}" bio ="{{Auth::user()->profile_bio}}" api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}" url="{{url('/')}}" username="{{Auth::user()->name}}"></posts>
   @endif
   @else
-    <h1>When he is not loged in</h1>
+      
+  <script>window.location = "/login";</script>
+
   @endif
 @endsection
 
