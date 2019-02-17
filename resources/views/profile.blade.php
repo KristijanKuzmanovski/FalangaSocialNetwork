@@ -39,10 +39,7 @@
 
     <button>Change password</button>
     <button id="editProfile">Edit profile</button>
-
-<div id='history_posts'>
-  
-</div>
+<history-posts url='{{route("history_posts")}}' baseurl='{{url('/')}}' api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}"  username="{{Auth::user()->name}}" ></history-posts>
 @endif
 </div>
 @endsection
@@ -55,23 +52,6 @@
           var croppie;
           var image="";
           window.onload=function(){
-
-          $.ajax({
-            url:'{{route("history_posts")}}',
-            headers:{"Authorization":"Bearer "+"{{Auth::user()->api_token}}" },
-            async:true,
-            success:function(data){
-              console.log(data);
-              for(var i=0;i<data.length;i++){
-                var str="";
-                str+=data[i].postBody;
-                str+="<br />";
-                str+="<button onclick=\"vote()\">Comments</button>"
-                $("#history_posts").append(str)
-              }
-              
-            }
-          })
 
             $("#myModal").on('hidden.bs.modal',function(){
               croppie.destroy();

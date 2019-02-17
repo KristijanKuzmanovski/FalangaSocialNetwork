@@ -17,11 +17,8 @@ window.Vue = require('vue');
 
 Vue.component('posts', require('./components/Posts.vue').default);
 Vue.component('chat', require('./components/Chat.vue').default);
-
+Vue.component('history-posts', require('./components/HistoryPosts.vue').default);
 
 const app = new Vue({
     el: '#app',
-    destroyed:function(){
-      console.log("smak");
-   }
 });

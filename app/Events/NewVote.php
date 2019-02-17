@@ -33,7 +33,10 @@ class NewVote implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('FalangaFeed');
+        return [
+          new PresenceChannel('FalangaFeed'),
+          new PresenceChannel('FalangaProfile')
+        ];
     }
     public function broadcastAs(){
       return 'NewVote';

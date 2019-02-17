@@ -35,7 +35,7 @@ class NewComment implements ShouldBroadcast
     public function broadcastOn()
     {
         return new PrivateChannel('FalangaComment.'.$this->comment->post_id);
-    }
+  }
     public function broadcastAs(){
       return 'NewComment';
     }
