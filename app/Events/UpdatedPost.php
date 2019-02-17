@@ -35,7 +35,7 @@ class UpdatedPost implements ShouldBroadcast
        */
       public function broadcastOn()
       {
-          return new PrivateChannel('FalangaFeed');
+        return new PresenceChannel('FalangaFeed');
       }
       public function broadcastAs(){
         return 'UpdatedPost';

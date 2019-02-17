@@ -23,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('api_token', 60)->unique();
             $table->integer('lastRead')->unsinged()->default(0);
+            $table->integer('numOfLikes')->unsinged()->default(0);
+            $table->integer('numOfDislikes')->unsinged()->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

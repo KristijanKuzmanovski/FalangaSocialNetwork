@@ -39,6 +39,8 @@ Route::middleware('auth:api')->group(function () {
 
     Route::post('/asked/{id}','UserProfileController@asked')->name('asked');
     Route::put('/edit/{id}','UserProfileController@edit')->name('profile_edit');
+    Route::get('/num_of_likes','UserProfileController@numOfLikes')->name('num_of_likes');
+    Route::get('/num_of_dislikes','UserProfileController@numOfDislikes')->name('num_of_dislikes');
 
     Route::get('/get_notifications','NotificationsController@getNotifications')->name('get_notifications');
     Route::get('/mark_as_read','NotificationsController@markAsRead')->name('mark_as_read');

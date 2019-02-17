@@ -47,13 +47,10 @@ class VotesController extends Controller
       ]);
       $type=$request->input('type');
       $id=$request->input('post_id');
-      $posts=Post::where('id',$id)->get();
-      $post=$posts[0];
-      if(empty($post)){
-        return 'No post with that id';
-      }
+      $post=Post::findOrFail($id);
 
       $user=auth()->user()->id;
+      $userObj=User::findOrFail($post->user_id);
       $votes=Vote::where([['user_id',$user],['post_id',$id]])->get();
       $user_like=0;
       $user_dislike=0;
@@ -66,35 +63,43 @@ class VotesController extends Controller
         if($type === 'like'){
           if($user_dislike === 1){
             $post->dislikes=$post->dislikes-1;
+            $userObj->numOfDislikes=$userObj->numOfDislikes - 1;
           }
           $user_dislike=0;
           if($user_like === 1){
             $user_like=0;
             $post->likes=$post->likes-1;
+            $userObj->numOfLikes=$userObj->numOfLikes - 1;
           }
           else{
             $user_like=1;
             $post->likes=$post->likes+1;
+            $userObj->numOfLikes=$userObj->numOfLikes + 1;
           }
         }
         else if ($type === 'dislike'){
           if($user_like === 1){
             $post->likes=$post->likes-1;
+            $userObj->numOfLikes=$userObj->numOfLikes - 1;
           }
                 $user_like=0;
                 if($user_dislike === 1){
                   $user_dislike=0;
                   $post->dislikes=$post->dislikes-1;
+                  $userObj->numOfDislikes=$userObj->numOfDislikes - 1;
                 }
                 else{
                   $user_dislike=1;
                   $post->dislikes=$post->dislikes+1;
+                  $userObj->numOfDislikes=$userObj->numOfDislikes + 1;
                 }
         }
         $vote->like=$user_like;
         $vote->dislike=$user_dislike;
         $vote->save();
         $post->save();
+        $userObj->save();
+
         event(new NewVote($vote));
 
         return 'Vote changed';
@@ -107,20 +112,23 @@ class VotesController extends Controller
             $vote->post_id=$id;
             $vote->user_id=$user;
             $post->likes=$post->likes+1;
+            $userObj->numOfLikes=$userObj->numOfLikes + 1;
           }else{
             $vote->like=0;
             $vote->dislike=1;
             $vote->post_id=$id;
             $vote->user_id=$user;
             $post->dislikes=$post->dislikes+1;
+            $userObj->numOfDislikes=$userObj->numOfDislikes + 1;
           }
           $vote->save();
           $post->save();
+          $userObj->save();
 
           if($post->user_id !== auth()->user()->id){
             $userIDD=User::findOrFail($post->user_id);
             $userIDD->notify(new VotedOnPostNotification(new VotedOnPostModel(auth()->user(), $type, $post->id)));
-            }
+          }
 
           event(new NewVote($vote));
 

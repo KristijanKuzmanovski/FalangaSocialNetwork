@@ -8,10 +8,11 @@ use Image;
 use App\User;
 use File;
 use App\Post;
+use App\Http\Resources\PostResource;
+
 class UserProfileController extends Controller
 {
     public function profile($id){
-
       $user=User::findOrFail($id);
       return view('profile')->with('user',$user);
     }
@@ -62,6 +63,13 @@ class UserProfileController extends Controller
         $user->save();
     }
     public function historyPosts(){
-      return Post::where("user_id",Auth()->user()->id)->orderBy('created_at','desc')->get();
+      $post=Post::where("user_id",Auth()->user()->id)->orderBy('created_at','desc')->paginate(10);
+      return PostResource::collection($post);
+    }
+    public function numOfLikes(){
+      return auth()->user()->numOfLikes;
+    }
+    public function numOfDislikes(){
+      return auth()->user()->numOfDislikes;
     }
 }

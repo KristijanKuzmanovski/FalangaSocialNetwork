@@ -11,6 +11,8 @@ Dzini:
 8.Bug koga ti istekuva vremeto na sesijata pri ne te vrakja na homa page tuku pokazuva error
 9.Register SSL X
 10.Free host X
+11.Tooltip za votes za hover pipec
+12.Notifikaci za vote changed
 
 ChinaBro:
 1 Front End
@@ -22,6 +24,9 @@ ChinaBro:
 7.Ikoni za stranite
 8.Home page
 9.vue za poseben post (preview)
+10.Notification icon and logic
+11.Search
+12.Scroll
 
 
 Bugs:

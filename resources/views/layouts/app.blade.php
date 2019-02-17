@@ -81,8 +81,10 @@
             </div>
         </nav>
         <main class="py-4">
+          @if(Auth::check())
           <button onclick="getNotifications()">get Notification</button>
           <button onclick="markAsRead()">mark Notification</button>
+        @endif
             @yield('content')
         </main>
     </div>
