@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
+  if(Auth::check()){
+    return view('/welcome');
+  }
     return view('auth.login');
 })->name('home');
 
-Route::get('/welcome', function () {
-    return view('welcome');});
 
 Auth::routes();
 
