@@ -27,6 +27,7 @@ ChinaBro:
 10.Notification icon and logic
 11.Search
 12.Scroll
+13.Na delete post ili comment da ima confirm box
 
 
 Bugs:

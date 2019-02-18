@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/chat', 'HomeController@chat')->name('chat');
+Route::get('/chat', 'HomeController@chat')->name('chat')->middleware('auth');
 
-Route::get('/profile/{id}','UserProfileController@profile')->name('profile');
+Route::get('/profile/{id}','UserProfileController@profile')->name('profile')->middleware('auth');
+Route::get('/post/{id}','PostsController@show')->name('single_post')->middleware('auth');
