@@ -23,3 +23,6 @@ Broadcast::channel('FalangaFeed', function ($user) {
 Broadcast::channel('FalangaComment.{id}', function ($user, $id) {
     return true;
 });
+Broadcast::channel('FalangaProfile', function ($user) {
+    return ['id' => $user->id, 'name' => $user->name, 'pic' => "/images/profiles/".$user->profile_pic];
+});

@@ -184,7 +184,7 @@
   </div>
 
 
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal2" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -700,6 +700,8 @@ let $ = JQuery
          }
          }).listen('.NewVote',(data)=>{
            var postId=this.findID(data.post_id);
+           console.log(data);
+           console.log("HAHAHAHAHAH");
            if(postId!=null){
            this.posts[postId].likes=data.likes;
            this.posts[postId].dislikes=data.dislikes;

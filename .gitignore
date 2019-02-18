@@ -19,3 +19,5 @@ yarn-error.log
 .well-known/*
 ./laravel-echo-server.lock
 .env
+./public/js/app.js
+public/js/app.js

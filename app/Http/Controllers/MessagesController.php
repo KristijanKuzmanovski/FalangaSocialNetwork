@@ -22,8 +22,6 @@ class MessagesController extends Controller
         $messages=Message::orderBy('created_at','desc')->paginate(10);
         if(empty($messages)){
           return 'No messages';
-        }elseif (count($messages) === 1) {
-          return new MessageResource($message[0]);
         }
         return MessageResource::collection($messages);
     }
@@ -36,7 +34,7 @@ class MessagesController extends Controller
         elseif (count($users) === 1) {
           return new SeenResource($users[0]);
         }
-        
+
         return SeenResource::collection($users);
     }
     public function hasRead(Request $request){

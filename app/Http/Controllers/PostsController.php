@@ -79,7 +79,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+      $post=Post::findOrFail($id);
+      $postR=new PostResource($post);
+        return view('post')->with("data",$postR);
     }
 
     /**

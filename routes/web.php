@@ -12,14 +12,16 @@
 */
 
 Route::get('/', function () {
+  if(Auth::check()){
+    return view('/welcome');
+  }
     return view('auth.login');
 })->name('home');
 
-Route::get('/welcome', function () {
-    return view('welcome');});
 
 Auth::routes();
 
-Route::get('/chat', 'HomeController@chat')->name('chat');
+Route::get('/chat', 'HomeController@chat')->name('chat')->middleware('auth');
 
-Route::get('/profile/{id}','UserProfileController@profile')->name('profile');
+Route::get('/profile/{id}','UserProfileController@profile')->name('profile')->middleware('auth');
+Route::get('/post/{id}','PostsController@show')->name('single_post')->middleware('auth');
