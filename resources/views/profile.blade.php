@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
 <div>
-  <img src="{{asset('/images/profiles/'.$user->profile_pic)}}" style="width:150px;height: 150px">
-  <h4>{{$user->name}}</h4>
-  <p>{{$user->profile_bio}}</p>
   @if( Auth::user()->id == $user->id )
 
     <!--Edit profile modal -->
@@ -37,9 +34,7 @@
     </div>
   </div>
 
-    <button>Change password</button>
-    <button id="editProfile">Edit profile</button>
-<history-posts url='{{route("history_posts")}}' baseurl='{{url('/')}}' api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}"  username="{{Auth::user()->name}}" ></history-posts>
+    <history-posts url='{{route("history_posts")}}' baseurl='{{url('/')}}' api_token="{{Auth::user()->api_token}}" user="{{Auth::user()->id}}" email="{{Auth::user()->email}}" bio="{{Auth::user()->profile_bio}}"  username="{{Auth::user()->name}}" ></history-posts>
 @endif
 </div>
 @endsection

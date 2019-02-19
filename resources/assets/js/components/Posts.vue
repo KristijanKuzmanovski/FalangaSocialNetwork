@@ -89,7 +89,7 @@
                         <div class="btn-toolbar justify-content-between">
                             <div v-if="edit!=true" class="btn-group">
 
-                                 <button class="btn btn-primary" @click="sendPost()">share</button>
+                                 <button class="btn btn-primary" @click="sendPost()">Share</button>
                             </div>
                             <div v-else="edit == true">
     <button class="btn btn-primary" @click='updatePost()'>Save</button>
@@ -226,7 +226,6 @@
           </fieldset>
           </form>
 
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -238,7 +237,7 @@
 <!--modal end-->
 
 
-  <div class="card gedf-card" v-for="post in posts" :id="post.post_id">
+  <div  class="card gedf-card" v-for="post in posts" :id="post.post_id">
 
     <div class="card-header">
        <div class="d-flex justify-content-between align-items-center">
